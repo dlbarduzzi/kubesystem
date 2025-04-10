@@ -1,0 +1,45 @@
+version: "2"
+run:
+  concurrency: 4
+  go: "1.24"
+linters:
+  default: none
+  enable:
+    - asasalint
+    - asciicheck
+    - errcheck
+    - gomodguard
+    - goprintffuncname
+    - govet
+    - ineffassign
+    - misspell
+    - nakedret
+    - nolintlint
+    - prealloc
+    - reassign
+    - staticcheck
+    - unconvert
+    - unused
+    - whitespace
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gofmt
+    - gofumpt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
