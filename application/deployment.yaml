@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: genlog
+  namespace: test-app
+  labels:
+    app: genlog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: genlog
+  template:
+    metadata:
+      labels:
+        app: genlog
+    spec:
+      containers:
+        - name: genlog
+          image: dlbarduzzi/genlog:0.1.0
